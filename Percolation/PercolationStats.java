@@ -4,8 +4,6 @@ import edu.princeton.cs.algs4.Stopwatch;
 
 public class PercolationStats {
 
-    // private Percolation[] grids;
-
     private double[] frac;
 
     private double nt;
@@ -15,14 +13,10 @@ public class PercolationStats {
         if (n < 1 || trials < 1) {
             throw new IllegalArgumentException();
         }
+        
         nt = (double) trials;
-        // grids = new Percolation[trials];
         frac = new double[trials];
-        /*
-        for (int i = 0; i < trials; i++) {
-            grids[i] = new Percolation(n);
-        }
-         */
+        
         for (int j = 0; j < trials; j++) {
             Percolation thisOne = new Percolation(n);
             double numOpened = 0;
