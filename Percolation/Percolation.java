@@ -26,15 +26,10 @@ public class Percolation {
         }
         gridLength = n;
         gridCount = n * n;
-        // TOP = 0;
+
         BOTTOM = gridCount + 1;
         openOnes = new boolean[gridLength][gridLength];
-        /*
-        coll = new QuickFindUF[n];
-        for (int i = 0; i < n; i++) {
-            coll[i] = new QuickFindUF(n + 2);
-        }
-         */
+
         qf = new WeightedQuickUnionUF(gridCount + 2);
         numOpened = 0;
 
@@ -42,11 +37,7 @@ public class Percolation {
 
     // opens the site (row, col) if it is not open already
     public void open(int row, int col) {
-        /*
-        if (!isOpen(row, col)) {
-            coll[row].union(col, gridLength);
-        }
-         */
+
         if (!isOpen(row, col)) {
             openOnes[row][col] = true;
             numOpened++;
@@ -78,117 +69,21 @@ public class Percolation {
     // is the site (row, col) open?
     public boolean isOpen(int row, int col) {
         // return !isFull(row, col);
-        /*
-        if (row >= gridLength || row < 0 || col >= gridLength || col < 0) {
-            return false;
-        }
-        if (coll[row].count() == gridLength + 1) {
-            return false;
-        }
-        if (coll[row].find(col) == coll[row].find(gridLength)) {
-            return true;
-        }
-        return false;
-         */
         return openOnes[row][col];
     }
 
     // is the site (row, col) full?
     public boolean isFull(int row, int col) {
-        /*
-        if (!isOpen(row, col)) {
-            return false;
-        }
-        if (row == 0) {
-            return true;
-        }
-        ArrayList<Integer> rows = new ArrayList<>();
-        ArrayList<Integer> cols = new ArrayList<>();
-        int[][] court = new int[gridLength][gridLength];
-        for (int i = 0; i < gridLength; i++) {
-            if (isOpen(0, i)) {
-                court[0][i] = gridLength;
-                if (isOpen(0, i - 1)) {
-                    rows.add(0);
-                    cols.add(i - 1);
-                }
-                if (isOpen(0, i + 1)) {
-                    rows.add(0);
-                    cols.add(i + 1);
-                }
-                if (isOpen(1, i)) {
-                    rows.add(1);
-                    cols.add(i);
-                }
-                while (!rows.isEmpty()) {
-                    int initial = rows.size();
-                    while (initial > 0) {
-                        int r = rows.get(initial - 1);
-                        int c = cols.get(initial - 1);
-                        court[r][c] = gridLength;
-                        if (isOpen(r, c - 1)) {
-                            if (court[r][c - 1] != gridLength) {
-                                rows.add(r);
-                                cols.add(c - 1);
-                            }
-                        }
-                        if (isOpen(r, c + 1)) {
-                            if (court[r][c + 1] != gridLength) {
-                                rows.add(r);
-                                cols.add(c + 1);
-                            }
-                        }
-                        if (isOpen(r + 1, c)) {
-                            if (court[r + 1][c] != gridLength) {
-                                rows.add(r + 1);
-                                cols.add(c);
-                            }
-
-                        }
-                        if (isOpen(r - 1, c)) {
-                            if (court[r - 1][c] != gridLength) {
-                                rows.add(r - 1);
-                                cols.add(c);
-                            }
-
-                        }
-                        rows.remove(initial - 1);
-                        cols.remove(initial - 1);
-                        initial--;
-                    }
-                }
-            }
-        }
-        return court[row][col] == gridLength;
-        // return false;
-
-         */
         return qf.find(quickIndex(row, col)) == qf.find(TOP);
     }
 
     // returns the number of open sites
     public int numberOfOpenSites() {
-        /*
-        int output = 0;
-        for (QuickFindUF element : coll) {
-            output += element.count() - 1;
-        }
-        return gridCount - output;
-
-         */
         return numOpened;
     }
 
     // does the system percolate?
     public boolean percolates() {
-        /*
-        for (int i = 0; i < gridLength; i++) {
-            if (isFull(gridLength - 1, i)) {
-                return true;
-            }
-        }
-        return false;
-         */
         return qf.find(TOP) == qf.find(BOTTOM);
     }
 
