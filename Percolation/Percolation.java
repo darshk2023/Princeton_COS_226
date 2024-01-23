@@ -9,8 +9,6 @@ public class Percolation {
 
     private boolean[][] openOnes;
 
-    // private QuickFindUF[] coll;
-
     private WeightedQuickUnionUF qf;
 
     private final int TOP = 0;
