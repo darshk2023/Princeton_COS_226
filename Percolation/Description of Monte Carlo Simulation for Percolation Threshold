@@ -1,0 +1,32 @@
+In this project, I engaged in a challenging and insightful task to estimate the percolation threshold of a system via Monte Carlo simulation. This task was part of my continuous effort to deepen my understanding and practical skills in computer science, particularly in algorithm implementation and performance analysis.
+
+Key Responsibilities:
+
+- Developed a Percolation Java class to model a percolation system using an n-by-n grid, enabling the identification of percolating systems 
+  based on dynamically changing site states.
+- Implemented critical methods such as open(), isOpen(), isFull(), and percolates() to manipulate and evaluate the grid's state.
+- Created a PercolationStats class to conduct a series of computational experiments, providing statistical insights into the percolation 
+  threshold through methods like mean(), stddev(), and confidence interval calculations.
+- Utilized StdRandom and StdStats from standard libraries for random number generation and statistical computations, ensuring accurate and 
+  efficient processing.
+- Conducted unit testing to verify the functionality of each component, adhering to rigorous testing standards.
+- Explored and compared the performance of two data structures - QuickFindUF and WeightedQuickUnionUF - to understand their efficiency in 
+  different scenarios.
+
+Learning Outcomes:
+
+- Gained proficiency in Java programming and deepened understanding of data structures and algorithms.
+- Developed a systematic approach to problem-solving, including the implementation of efficient algorithms and performance optimization.
+- Enhanced skills in statistical analysis and the application of Monte Carlo simulation to solve complex problems.
+- Acquired practical experience in handling edge cases and ensuring the robustness of software solutions.
+
+Technological Stack:
+
+- Java
+- StdLibraries (StdRandom, StdStats, Stopwatch)
+- Algorithms (Quick Find, Weighted Quick Union)
+
+This project not only solidified my Java programming skills but also provided a profound insight into the practical application of 
+theoretical concepts in computer science. The experience of estimating the percolation threshold through simulation has been 
+instrumental in my journey as a CS major.
+
